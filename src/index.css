@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  
+  --font-sans: "Inter", "Outfit", system-ui, -apple-system, sans-serif;
+  
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+
+  --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --shadow-glass: inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  @apply bg-[#020617] text-slate-100 min-h-screen selection:bg-blue-500/30 antialiased;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Premium Glassmorphism */
+.glass {
+  @apply bg-slate-900/40 backdrop-blur-3xl border border-white/5 shadow-premium;
+  box-shadow: var(--shadow-glass), var(--shadow-premium);
+}
+
+.glass-card {
+  @apply bg-linear-to-br from-white/5 to-white/[0.02] backdrop-blur-2xl border border-white/10 shadow-2xl;
+}
+
+.glass-morphism {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Scrollbar Styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-slate-950;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full hover:bg-blue-500/50 transition-colors;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; scale: 0.95; }
+  to { opacity: 1; scale: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-scale {
+  animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Text Enhancements */
+.text-gradient {
+  @apply bg-linear-to-br from-white via-white to-blue-400 bg-clip-text text-transparent;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.pro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .pro-grid {
+    grid-template-columns: 1fr;
+  }
+}
