@@ -35,11 +35,7 @@ This project demonstrates advanced frontend engineering skills, including comple
     -   OpenWeatherMap API (Meteorological Data)
     -   Google Maps Embed API (Cartography)
 
-## 📸 Application Screenshots
 
-| Country Details | Search Experience |
-|:---:|:---:|
-| *(Add your screenshot here)* | *(Add your screenshot here)* |
 
 ## 🏗️ Installation & Setup
 
